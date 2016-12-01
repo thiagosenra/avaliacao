@@ -12,8 +12,6 @@ public class listaUsuarios {
 		users.setNome("");
 		users.setSenha("");
 		users.setCpf(123);
-		
-		
 		users.setDataNasc(1234);
 	}
 

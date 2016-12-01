@@ -13,7 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
-
+import javax.ws.rs.core.Response;
 
 import Modelo.Usuarios;
 import Modelo.listaUsuarios;
@@ -21,39 +21,63 @@ import Modelo.listaUsuarios;
 
 
 
-@Path("/WebService")
+
+@Path("/usuario")
 @ApplicationPath("/resource")
 public class UsersWS extends Application {
-	// http://localhost:8080/avaliacao/resource/WebService/listaUsuarios
+
+	Usuarios usu = new Usuarios();
+	ArrayList< Usuarios > listaUsuario = new ArrayList<Usuarios>();
+	
+	@GET
+	@Path("/hello")
+	public Response hello() {
+		return Response.status(200).entity("chamou.").build();
+
+	}
+	//http://localhost:8080/WebService-Ionic/resource/usuario/hello
+	
 	
 	
 	@POST
-	@Path("/cadastroUsuarios")
-	@Consumes("application/json")
-	public void cadastroUsuarios(Usuarios objUsuarios){
-		try {
-			
-		} catch (Exception e) {
-			System.out.println("error"+e);
-		}
-	}
+    @Path("/testeAddUsuario")
+    @Produces
+    @Consumes("application/json")
+    public Response testeCadastrar(Usuarios objUsuario) {
+       System.out.println("Nome do Usuario: " + objUsuario.getNome());
+       System.out.println("Cpf do Usuario: " + objUsuario.getCpf());
+       System.out.println("Senha do Usuario: " + objUsuario.getSenha());
+       System.out.println("Email do Usuario: " + objUsuario.getEmail());
+       System.out.println("Data de Nascimento do Usuario: " + objUsuario.getDataNasc());
+       
+		
+        return Response.status(200).entity(objUsuario.getNome()).build();     
+      
+    }
+	
+	@POST
+    @Path("/adicionar")
+    @Produces
+    @Consumes("application/json")
+    public Response cadastrar(Usuarios objUsuario) {
+       // System.out.println("Cliente: " + objUsuario.getNome());
+		
+        return Response.status(200).entity(objUsuario.getNome()).build();}
+	
 	
 	@GET
-	@Path("/listaUsuarios")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public listaUsuarios CadastroUsuarios() {
-	try {
-		Usuarios users = new Usuarios();
-		listaUsuarios.add(users);
-		
-		System.out.println(users);
-	} catch (Exception e) {
-		// TODO: handle exception
+    @Path( "/consulta" )
+    @Produces("application/json")
+    public String ConsultaUsuario() 
+	{
+		return null;
 	}
-	return null;
+	
+	
+	
+	
 	
 		
 	}
 
-}
+
