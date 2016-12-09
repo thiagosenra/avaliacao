@@ -1,23 +1,41 @@
 package Modelo;
 
+import java.time.LocalDate;
+
 public class Usuarios {
 	private String nome;
-	private Integer cpf;
+	private String cpf;
 	private String email;
 	private String senha;
-	private Integer dataNasc;
+	private LocalDate dataNasc;
 	
 	
+	
+	
+	public Usuarios() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Usuarios(String nome, String cpf, String email, String senha, LocalDate dataNasc) {
+		super();
+		this.nome=nome;
+		this.cpf=cpf;
+		this.email=email;
+		this.senha=senha;
+		this.dataNasc=dataNasc;
+		
+		// TODO Auto-generated constructor stub
+	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(Integer cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getEmail() {
@@ -32,10 +50,10 @@ public class Usuarios {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Integer getDataNasc() {
+	public LocalDate getDataNasc() {
 		return dataNasc;
 	}
-	public void setDataNasc(Integer dataNasc) {
+	public void setDataNasc(LocalDate dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 	
